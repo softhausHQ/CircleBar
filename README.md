@@ -16,15 +16,27 @@ Only asking because we do.
 
 CircleBar is a fun tab bar navigation controller,  
 written in Swift 4 and available through CocoaPods.
+<br>
+<br> 
+<br> 
+<br>
+<br> 
+<br> 
+<br>
+<br> 
+<br> 
 
 
 #
 
+We’re a nimble team of friendly designers and thoughtful developers.  
+Have a fun project or need help?   
+
 <a href="mailto:team@softhaus.org">
-<img align="left" style="margin-top:200px;" src="https://user-images.githubusercontent.com/7403338/53203134-08c5f800-3631-11e9-99cd-f85e16037cf1.png" width="160" height="40" /></a>
+<img align="left" style="margin-top:200px;" src="https://user-images.githubusercontent.com/7403338/53203134-08c5f800-3631-11e9-99cd-f85e16037cf1.png" width="160" height="40"/></a>
 
 
 
 
 
-----
+
