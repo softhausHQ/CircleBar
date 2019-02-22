@@ -3,7 +3,7 @@
 
 # CircleBar 
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://softhaus.org)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/softhausHQ/CircleBar/blob/readme-styling/LICENSE)
 [![CocoaPod compatible](https://img.shields.io/cocoapods/v/CircleBar.svg)](https://github.com/softhausHQ/CircleBar)
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-green.svg?style=flat)](https://developer.apple.com/swift/)
 [![Twitter](https://img.shields.io/twitter/follow/softhausHQ.svg?style=social)](http://twitter.com/softhausHQ)
@@ -11,14 +11,18 @@
 <a href="https://github.com/softhausHQ/CircleBar">
 <img align="right" src="https://user-images.githubusercontent.com/7403338/53203146-111e3300-3631-11e9-8f0a-5e08dabd294b.png" width="400" height="300" /></a>
 
+<br>
+<br> 
+
 Don’t you, sometimes, miss fun user interfaces?  
 Truth is, we do. Sure, you can't use them in enterprise apps for obvious reasons, but if you're working on a fun project... 
 
 CircleBar is a fun tab bar navigation controller,  
 written in Swift 4 and available through CocoaPods. 
 
+> Currently at v1.0, feel free to contribute.
 
-<br>
+
 <br> 
 <br> 
 <br>
