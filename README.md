@@ -20,7 +20,7 @@ Truth is, we do. Sure, you can't use them in enterprise apps for obvious reasons
 CircleBar is a fun tab bar navigation controller,  
 written in Swift 4 and available through CocoaPods. 
 
-> Currently at v1.0, feel free to contribute.
+> Currently at v1.0. Contributions are welcome.
 
 
 <br> 
