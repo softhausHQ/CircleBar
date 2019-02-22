@@ -9,7 +9,7 @@
 [![Twitter](https://img.shields.io/twitter/follow/softhausHQ.svg?style=social)](http://twitter.com/softhausHQ)
 
 <a href="https://github.com/softhausHQ/CircleBar">
-<img align="right" src="https://user-images.githubusercontent.com/7403338/53203146-111e3300-3631-11e9-8f0a-5e08dabd294b.png" width="400" height="300" /></a>
+<img align="right" src="https://user-images.githubusercontent.com/7403338/53261400-94489300-36dc-11e9-99db-5bdf86eb64eb.png" width="400" height="300" /></a>
 
 <br>
 <br> 
