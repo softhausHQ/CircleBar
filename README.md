@@ -50,14 +50,21 @@ pod 'CircleBar'
 
 
 # Roadmap
-- [ ] Write the Usage section
+- [x] Write the Usage section
 - [ ] Improve landscape support
 - [ ] Improve transitions
 - [ ] Release v1.0 
 - [ ] iPad support
 
 # Usage
-<br>
+1. Create a new `UITabBarController` in your storyboard or nib.
+
+2. Set the class of the `UITabBarController` to `SHTabBarController` in your Storyboard or nib. 
+
+3. Set the class of the `UITabBar` of `SHTabBarController` to `SHTabBar` in your Storyboard or nib.
+
+4. Add a custom image icon and title for `UITabBarItem` of each child `UIViewContrroller`.
+
 
 
 # Example

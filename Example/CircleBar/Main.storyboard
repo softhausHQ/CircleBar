@@ -9,26 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CircleBar_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" image="about" id="54M-Nt-1TM">
-                        <color key="badgeColor" red="0.3411764706" green="0.72549019609999998" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-6"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
-        </scene>
-        <!--asd-->
+        <!--View 1-->
         <scene sceneID="HrQ-bk-zak">
             <objects>
                 <viewController id="PN1-mI-Mpj" customClass="ViewController" customModule="CircleBar_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +19,7 @@
                         <color key="backgroundColor" red="0.45098039220000002" green="0.34509803919999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Ni4-BZ-rv1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="asd" image="apple" id="6WL-HR-obU">
+                    <tabBarItem key="tabBarItem" title="View 1" image="apple" id="6WL-HR-obU">
                         <color key="badgeColor" red="0.90588235289999997" green="0.42745098040000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                 </viewController>
@@ -66,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="2274" y="-714"/>
         </scene>
-        <!--asd-->
+        <!--View 2-->
         <scene sceneID="Fkb-PL-eXY">
             <objects>
                 <viewController id="MM3-fs-zMs" customClass="ViewController" customModule="CircleBar_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,7 +57,7 @@
                         <color key="backgroundColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                         <viewLayoutGuide key="safeArea" id="tU0-ki-joq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="asd" image="approval" id="0S5-D7-S5D">
+                    <tabBarItem key="tabBarItem" title="View 2" image="approval" id="0S5-D7-S5D">
                         <color key="badgeColor" red="0.38823529410000002" green="0.26274509800000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                 </viewController>
@@ -84,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="2583" y="134"/>
         </scene>
-        <!--asd-->
+        <!--View 3-->
         <scene sceneID="atI-RU-25k">
             <objects>
                 <viewController id="qmx-bn-hT0" customClass="ViewController" customModule="CircleBar_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +75,7 @@
                         <color key="backgroundColor" red="0.90588235289999997" green="0.42745098040000001" blue="0.17254901959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="0gA-K9-yFr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="asd" image="bell" id="yRC-Jh-mdH">
+                    <tabBarItem key="tabBarItem" title="View 3" image="bell" id="yRC-Jh-mdH">
                         <color key="badgeColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
                 </viewController>
@@ -102,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="3273" y="134"/>
         </scene>
-        <!--asd-->
+        <!--View 4-->
         <scene sceneID="XV1-At-ypd">
             <objects>
                 <viewController id="K93-Zf-XJ1" customClass="ViewController" customModule="CircleBar_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,7 +93,7 @@
                         <color key="backgroundColor" red="0.3411764706" green="0.72549019609999998" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="XhL-vf-R9Z"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="asd" image="approval" id="XKK-fW-YWm">
+                    <tabBarItem key="tabBarItem" title="View 4" image="about" id="XKK-fW-YWm">
                         <color key="badgeColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
                 </viewController>

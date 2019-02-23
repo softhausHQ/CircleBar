@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CircleBar'
-  s.version          = '0.8.0'
-  s.summary          = 'Really cool UITabBar'
+  s.version          = '0.8.1'
+  s.summary          = 'A fun, easy-to-use tab bar navigation controller for iOS.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -22,7 +22,7 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/softhausHQ/CircleBar'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://user-images.githubusercontent.com/7403338/53284076-884de700-3757-11e9-9185-33a67e7b3ba0.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'softhaus' => 'adi@softhaus.org' }
   s.source           = { :git => 'https://github.com/softhausHQ/CircleBar.git', :tag => s.version.to_s }
