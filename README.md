@@ -48,6 +48,14 @@ it, simply add the following line to your Podfile:
 pod 'CircleBar'
 ```
 
+
+# Roadmap
+- [ ] Write the Usage section
+- [ ] Improve landscape support
+- [ ] Improve transitions
+- [ ] Release v1.0 
+- [ ] iPad support
+
 # Usage
 <br>
 
