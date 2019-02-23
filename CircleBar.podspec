@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/softhausHQ/CircleBar'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECDvmLX054PcJBBjMMneKPxk6VR24tAMy8N0OCD5EC6YWawY=' => 'adi@softhaus.org' }
+  s.author           = { 'softhaus' => 'adi@softhaus.org' }
   s.source           = { :git => 'https://github.com/softhausHQ/CircleBar.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/softhausHQ'
 
