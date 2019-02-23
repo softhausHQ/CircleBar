@@ -1,0 +1,22 @@
+{
+  "name": "CircleBar",
+  "version": "0.1.0",
+  "summary": "A short description of CircleBar.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECDvmLX054PcJBBjMMneKPxk6VR24tAMy8N0OCD5EC6YWawY=/CircleBar",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECDvmLX054PcJBBjMMneKPxk6VR24tAMy8N0OCD5EC6YWawY=": "adi@softhaus.org"
+  },
+  "source": {
+    "git": "https://github.com/MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECDvmLX054PcJBBjMMneKPxk6VR24tAMy8N0OCD5EC6YWawY=/CircleBar.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CircleBar/Classes/**/*"
+}

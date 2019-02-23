@@ -1,0 +1,6 @@
+framework module Pods_CircleBar_Example {
+  umbrella header "Pods-CircleBar_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

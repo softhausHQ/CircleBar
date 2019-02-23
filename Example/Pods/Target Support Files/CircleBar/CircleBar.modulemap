@@ -1,0 +1,6 @@
+framework module CircleBar {
+  umbrella header "CircleBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CircleBar_Example' do
+  pod 'CircleBar', :path => '../'
+
+  target 'CircleBar_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
