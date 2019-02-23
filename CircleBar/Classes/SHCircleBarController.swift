@@ -2,7 +2,7 @@
 //  SHCircleBarController.swift
 //  SHCircleBar
 //
-//  Created by Adrian Perte on 19/02/2019.
+//  Created by Adrian Perțe on 19/02/2019.
 //  Copyright © 2019 softhaus. All rights reserved.
 //
 

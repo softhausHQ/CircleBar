@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  CircleBar
 //
-//  Created by MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECDvmLX054PcJBBjMMneKPxk6VR24tAMy8N0OCD5EC6YWawY= on 02/23/2019.
-//  Copyright (c) 2019 MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECDvmLX054PcJBBjMMneKPxk6VR24tAMy8N0OCD5EC6YWawY=. All rights reserved.
+//  Created by Perțe Adrian on 02/23/2019.
+//  Copyright (c) 2019 softhaus. All rights reserved.
 //
 
 import UIKit
