@@ -41,32 +41,28 @@ class SHCircleBarController: UITabBarController {
         super.viewDidLoad()
         let tabBar = SHCircleBar()
         self.setValue(tabBar, forKey: "tabBar")
-
-    }
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items!.count)
-
-        circleView = UIView(frame: CGRect(x: tabWidth / 2 - 30 - self.view.safeAreaInsets.bottom, y: self.tabBar.frame.origin.y - 40, width: 60, height: 60))
+        
+        self.circleView = UIView(frame: .zero)
         circleView.layer.cornerRadius = 30
         circleView.backgroundColor = .white
         circleView.isUserInteractionEnabled = false
         
-        circleImageView = UIImageView(frame: self.circleView.bounds)
+        self.circleImageView = UIImageView(frame: .zero)
         circleImageView.layer.cornerRadius = 30
         circleImageView.isUserInteractionEnabled = false
         circleImageView.contentMode = .center
-        circleImageView.image = image(with: self.tabBar.selectedItem?.image, scaledTo: CGSize(width: 30, height: 30))
-
+        
         circleView.addSubview(circleImageView)
         self.view.addSubview(circleView)
-
+        let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items?.count ?? 4)
+        
+        circleView.frame = CGRect(x: tabWidth / 2 - 30, y: self.tabBar.frame.origin.y - 40, width: 60, height: 60)
+        circleImageView.frame = self.circleView.bounds
     }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        circleImageView.image = image(with: self.tabBar.selectedItem?.image ?? self.tabBar.items?.first?.image, scaledTo: CGSize(width: 30, height: 30))
+        
     }
     
     private var _barHeight: CGFloat = 74
@@ -105,10 +101,8 @@ class SHCircleBarController: UITabBarController {
     }
     
     open override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let idx = tabBar.items?.index(of: item) else {
-            return
-        }
-        if let controller = viewControllers?[idx] {
+        guard let idx = tabBar.items?.index(of: item) else { return }
+        if  idx != selectedIndex, let controller = viewControllers?[idx] {
             shouldSelectOnTabBar = false
             selectedIndex = idx
             let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items!.count)
