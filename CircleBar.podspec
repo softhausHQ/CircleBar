@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CircleBar'
-  s.version          = '0.8.1'
+  s.version          = '0.8.2'
   s.summary          = 'A fun, easy-to-use tab bar navigation controller for iOS.'
 
 # This description is used to generate tags and improve search results.
@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+s.description      = 'CircleBar is a fun tab bar navigation controller, written in Swift 4 and available through CocoaPods.'
 
   s.homepage         = 'https://github.com/softhausHQ/CircleBar'
   s.screenshots     = 'https://user-images.githubusercontent.com/7403338/53284076-884de700-3757-11e9-9185-33a67e7b3ba0.gif'
