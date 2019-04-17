@@ -59,7 +59,7 @@ pod 'CircleBar'
 # Usage
 1. Create a new `UITabBarController` in your storyboard or nib.
 
-2. Set the class of the `UITabBarController` to `SHCircleController` in your Storyboard or nib. 
+2. Set the class of the `UITabBarController` to `SHCircleBarController` in your Storyboard or nib. 
 
 3. Set the class of the `UITabBar` of `SHTabBarController` to `SHCircleBar` in your Storyboard or nib.
 
