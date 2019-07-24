@@ -65,6 +65,12 @@ class SHCircleBarController: UITabBarController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items?.count ?? 4)
+        circleView.frame = CGRect(x: tabWidth / 2 - 30, y: self.tabBar.frame.origin.y - 15, width: 60, height: 60)
+    }
+    
     private var _barHeight: CGFloat = 74
     open var barHeight: CGFloat {
         get {
