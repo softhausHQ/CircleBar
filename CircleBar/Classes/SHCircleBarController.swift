@@ -87,7 +87,10 @@ class SHCircleBarController: UITabBarController {
         self.tabBar.frame = tabFrame
         tabBar.setNeedsLayout()
     }
-    
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.selectedIndex = 1
+    }
     open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         updateTabBarFrame()
