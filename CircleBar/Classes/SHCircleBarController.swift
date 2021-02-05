@@ -21,7 +21,7 @@ class SHCircleBarController: UITabBarController {
             }
             guard let tabBar = tabBar as? SHCircleBar, let index = viewControllers?.index(of: newValue) else {return}
             tabBar.select(itemAt: index, animated: true)
-            tabBar.hapticFeedback()
+            tabBar.hapticFeedback(status: tabBar.HapticFeedback)
         }
     }
     

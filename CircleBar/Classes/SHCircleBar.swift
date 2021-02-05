@@ -23,6 +23,12 @@ import UIKit
         customInit()
     }
     
+    @IBInspectable var HapticFeedback:Bool = false {
+        didSet{
+            self.hapticFeedback(status: HapticFeedback)
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customInit()
@@ -83,8 +89,12 @@ import UIKit
         bezPath.append(UIBezierPath(rect: self.bounds))
         return bezPath
     }
-    func hapticFeedback(){
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+    
+    func hapticFeedback(status: Bool){
+        if status == true {
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            print("hello")
+        }else{ }
     }
 }
