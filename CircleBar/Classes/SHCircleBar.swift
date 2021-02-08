@@ -23,10 +23,15 @@ import UIKit
         customInit()
     }
     
+    @IBInspectable var hasHapticFeedback:Bool = false {
+        didSet{
+            self.hapticFeedback()
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customInit()
-        
     }
     override func draw(_ rect: CGRect) {
         let fillColor: UIColor = .white
@@ -50,7 +55,7 @@ import UIKit
             mask.add(bezAnimation, forKey: nil)
         }
         self.layer.mask = mask
-
+        
     }
     
     func select(itemAt: Int, animated: Bool) {
@@ -68,15 +73,15 @@ import UIKit
     }
     private func drawPath(for index: CGFloat) -> UIBezierPath {
         let bezPath = UIBezierPath()
-
+        
         let firstPoint = CGPoint(x: (index * tabWidth) - 25, y: 0)
         let firstPointFirstCurve = CGPoint(x: ((tabWidth * index) + tabWidth / 4), y: 0)
         let firstPointSecondCurve = CGPoint(x: ((index * tabWidth) - 25) + tabWidth / 8, y: 52)
-
+        
         let middlePoint = CGPoint(x: (tabWidth * index) + tabWidth / 2, y: 55)
         let middlePointFirstCurve = CGPoint(x: (((tabWidth * index) + tabWidth) - tabWidth / 8) + 25, y: 52)
         let middlePointSecondCurve = CGPoint(x: (((tabWidth * index) + tabWidth) - tabWidth / 4), y: 0)
-
+        
         let lastPoint = CGPoint(x: (tabWidth * index) + tabWidth + 25, y: 0)
         bezPath.move(to: firstPoint)
         bezPath.addCurve(to: middlePoint, controlPoint1: firstPointFirstCurve, controlPoint2: firstPointSecondCurve)
@@ -85,5 +90,8 @@ import UIKit
         return bezPath
     }
     
-
+    func hapticFeedback(){
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+    }
 }
