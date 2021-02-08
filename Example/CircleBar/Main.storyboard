@@ -34,6 +34,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="HapticFeedback" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasHapticFeedback" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="PN1-mI-Mpj" kind="relationship" relationship="viewControllers" id="SRj-1L-amn"/>

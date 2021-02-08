@@ -23,9 +23,9 @@ import UIKit
         customInit()
     }
     
-    @IBInspectable var HapticFeedback:Bool = false {
+    @IBInspectable var hasHapticFeedback:Bool = false {
         didSet{
-            self.hapticFeedback(status: HapticFeedback)
+            self.hapticFeedback()
         }
     }
     
@@ -90,11 +90,8 @@ import UIKit
         return bezPath
     }
     
-    func hapticFeedback(status: Bool){
-        if status == true {
+    func hapticFeedback(){
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
-            print("hello")
-        }else{ }
     }
 }
