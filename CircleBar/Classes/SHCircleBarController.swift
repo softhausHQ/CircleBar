@@ -10,30 +10,38 @@ import UIKit
 
 class SHCircleBarController: UITabBarController {
 
-    fileprivate var shouldSelectOnTabBar = true
     private var circleView : UIView!
     private var circleImageView: UIImageView!
-    open override var selectedViewController: UIViewController? {
+    
+    public override var selectedViewController: UIViewController? {
         willSet {
-            guard shouldSelectOnTabBar, let newValue = newValue else {
-                shouldSelectOnTabBar = true
-                return
-            }
-            guard let tabBar = tabBar as? SHCircleBar, let index = viewControllers?.index(of: newValue) else {return}
+            guard let newValue = newValue,
+                  let tabBar = tabBar as? SHCircleBar,
+                  let index = viewControllers?.firstIndex(of: newValue)
+                  else { return }
+            updateCircle(index: index)
             tabBar.select(itemAt: index, animated: true)
         }
     }
     
-    open override var selectedIndex: Int {
+    public override var selectedIndex: Int {
         willSet {
-            guard shouldSelectOnTabBar else {
-                shouldSelectOnTabBar = true
-                return
-            }
-            guard let tabBar = tabBar as? SHCircleBar else {
-                return
-            }
-            tabBar.select(itemAt: selectedIndex, animated: true)
+            guard let tabBar = tabBar as? SHCircleBar else { return }
+            updateCircle(index: newValue)
+            tabBar.select(itemAt: newValue, animated: true)
+        }
+    }
+    
+    private var _barHeight: CGFloat = 74
+    public var barHeight: CGFloat {
+        get {
+            if #available(iOS 11.0, *) {
+                return _barHeight + view.safeAreaInsets.bottom
+            } else { return _barHeight }
+        }
+        set {
+            _barHeight = newValue
+            updateTabBarFrame()
         }
     }
     
@@ -42,50 +50,12 @@ class SHCircleBarController: UITabBarController {
         let tabBar = SHCircleBar()
         self.setValue(tabBar, forKey: "tabBar")
         
-        self.circleView = UIView(frame: .zero)
-        circleView.layer.cornerRadius = 30
-        circleView.backgroundColor = .white
-        circleView.isUserInteractionEnabled = false
-        
-        self.circleImageView = UIImageView(frame: .zero)
-        circleImageView.layer.cornerRadius = 30
-        circleImageView.isUserInteractionEnabled = false
-        circleImageView.contentMode = .center
-        
-        circleView.addSubview(circleImageView)
-        self.view.addSubview(circleView)
-        let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items?.count ?? 4)
-        
-        circleView.frame = CGRect(x: tabWidth / 2 - 30, y: self.tabBar.frame.origin.y - 40, width: 60, height: 60)
-        circleImageView.frame = self.circleView.bounds
+        addCirleView()
     }
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        circleImageView.image = image(with: self.tabBar.selectedItem?.image ?? self.tabBar.items?.first?.image, scaledTo: CGSize(width: 30, height: 30))
-        
-    }
-    
-    private var _barHeight: CGFloat = 74
-    open var barHeight: CGFloat {
-        get {
-            if #available(iOS 11.0, *) {
-                return _barHeight + view.safeAreaInsets.bottom
-            } else {
-                return _barHeight
-            }
-        }
-        set {
-            _barHeight = newValue
-            updateTabBarFrame()
-        }
-    }
-    
-    private func updateTabBarFrame() {
-        var tabFrame = self.tabBar.frame
-        tabFrame.size.height = barHeight
-        tabFrame.origin.y = self.view.frame.size.height - barHeight
-        self.tabBar.frame = tabFrame
-        tabBar.setNeedsLayout()
+        circleImageView.image = self.tabBar.selectedItem?.image ?? self.tabBar.items?.first?.image
     }
     
     open override func viewWillLayoutSubviews() {
@@ -101,31 +71,92 @@ class SHCircleBarController: UITabBarController {
     }
     
     open override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let idx = tabBar.items?.index(of: item) else { return }
-        if  idx != selectedIndex, let controller = viewControllers?[idx] {
-            shouldSelectOnTabBar = false
-            selectedIndex = idx
-            let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items!.count)
-            UIView.animate(withDuration: 0.3) {
-                self.circleView.frame = CGRect(x: (tabWidth * CGFloat(idx) + tabWidth / 2 - 30), y: self.tabBar.frame.origin.y - 15, width: 60, height: 60)
-            }
-            UIView.animate(withDuration: 0.15, animations: {
-                self.circleImageView.alpha = 0
-            }) { (_) in
-                self.circleImageView.image = self.image(with: item.image, scaledTo: CGSize(width: 30, height: 30))
-                UIView.animate(withDuration: 0.15, animations: {
-                    self.circleImageView.alpha = 1
-                })
-            }
-            delegate?.tabBarController?(self, didSelect: controller)
-        }
-    }
-    private func image(with image: UIImage?, scaledTo newSize: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(newSize, _: false, _: 0.0)
-        image?.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
+        guard let index = tabBar.items?.firstIndex(of: item) else { return }
+        updateCircle(index: index)
     }
     
+}
+
+extension SHCircleBarController {
+    public func updateCircle(index: Int) {
+        guard let items = tabBar.items,
+              let vcs = viewControllers,
+              index < items.count,
+              index < vcs.count,
+              index != selectedIndex else { return }
+        
+        let item = items[index]
+        let controller = vcs[index]
+            
+        let tabWidth = self.view.bounds.width / CGFloat(items.count)
+        let circleWidth = self.circleView.bounds.width
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let `self` = self else { return }
+            self.circleView.frame = CGRect(
+                x: (tabWidth * CGFloat(index) + tabWidth / 2 - circleWidth*0.5),
+                y: self.circleView.frame.minY,
+                width: circleWidth,
+                height: circleWidth)
+        }
+        
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            self?.circleImageView.alpha = 0
+        } completion: { [weak self] (_) in
+            self?.circleImageView.image = item.image
+            UIView.animate(withDuration: 0.15, animations: { [weak self] in
+                self?.circleImageView.alpha = 1
+            })
+        }
+        delegate?.tabBarController?(self, didSelect: controller)
+    }
+    
+    fileprivate func updateTabBarFrame() {
+        var tabFrame = self.tabBar.frame
+        tabFrame.size.height = barHeight
+        tabFrame.origin.y = self.view.frame.size.height - barHeight
+        self.tabBar.frame = tabFrame
+        tabBar.setNeedsLayout()
+    }
+    
+    fileprivate func addCirleView() {
+        let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items?.count ?? 4)
+        let circleViewWidth = tabWidth*0.5
+        let circleViewRadius = circleViewWidth*0.5
+        
+        self.circleView = UIView(frame: .zero)
+        circleView.layer.cornerRadius = circleViewRadius
+        circleView.backgroundColor = .white
+        
+        self.circleImageView = UIImageView(frame: .zero)
+        circleImageView.layer.cornerRadius = circleViewRadius
+        circleImageView.isUserInteractionEnabled = false
+        circleImageView.contentMode = .center
+        
+        circleView.addSubview(circleImageView)
+        self.view.addSubview(circleView)
+        
+        circleView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        circleView.layer.shadowRadius = 2
+        circleView.layer.shadowColor = UIColor.black.cgColor
+        circleView.layer.shadowOpacity = 0.15
+        
+        let bottomPadding = getBottomPadding()
+        
+        circleView.frame = CGRect(
+            x: tabWidth / 2 - tabWidth*0.25,
+            y: self.tabBar.frame.origin.y - bottomPadding - circleViewWidth*0.5,
+            width: circleViewWidth,
+            height: circleViewWidth)
+        circleImageView.frame = self.circleView.bounds
+    }
+    
+    fileprivate func getBottomPadding() -> CGFloat {
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows[0]
+            return window.safeAreaInsets.bottom
+        } else if #available(iOS 11.0, *) {
+            return view.safeAreaInsets.bottom
+        } else { return 0 }
+    }
 }

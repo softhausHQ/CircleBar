@@ -1,5 +1,5 @@
 PODS:
-  - CircleBar (0.1.0)
+  - CircleBar (0.8.2)
 
 DEPENDENCIES:
   - CircleBar (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CircleBar: b9c26c3833a648ef0bd56102d9e15c2dc050588f
+  CircleBar: 5b882eb3870de5bbda42bef1b2ec6c5c533497db
 
 PODFILE CHECKSUM: c85bb2d45d7d4fdfeeaa049dfcacccb3a811d08b
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.10.1
