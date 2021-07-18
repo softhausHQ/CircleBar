@@ -312,15 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CircleBar_Example/Pods-CircleBar_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CircleBar/CircleBar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleBar.framework",
 			);
