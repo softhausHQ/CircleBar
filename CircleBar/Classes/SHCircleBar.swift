@@ -19,6 +19,10 @@ import UIKit
     private var selectedImage: UIImage?
     private var previousIndex: CGFloat = 0
     
+    private let maskLayer = CAShapeLayer()
+    private let shadowLayer = CAShapeLayer()
+    private let maskedView = UIView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         customInit()
@@ -27,7 +31,6 @@ import UIKit
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customInit()
-        
     }
     
     open override func draw(_ rect: CGRect) {
@@ -46,33 +49,41 @@ extension SHCircleBar {
     }
     
     private func drawCurve() {
-        let fillColor: UIColor = .white
-        tabWidth = self.bounds.width / CGFloat(self.items!.count)
+        tabWidth = self.bounds.width / CGFloat(self.items?.count ?? 4)
         let bezPath = drawPath(for: index)
         
-        bezPath.close()
-        fillColor.setFill()
-        bezPath.fill()
-        let mask = CAShapeLayer()
-        mask.fillRule = .evenOdd
-        mask.fillColor = UIColor.white.cgColor
-        mask.path = bezPath.cgPath
-        if (self.animated) {
+        maskedView.frame = bezPath.bounds
+        maskLayer.path = bezPath.cgPath
+        shadowLayer.path = bezPath.cgPath
+        
+        if (animated) {
             let bezAnimation = CABasicAnimation(keyPath: "path")
             let bezPathFrom = drawPath(for: previousIndex)
             bezAnimation.toValue = bezPath.cgPath
             bezAnimation.fromValue = bezPathFrom.cgPath
             bezAnimation.duration = 0.3
             bezAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            mask.add(bezAnimation, forKey: nil)
+            maskLayer.add(bezAnimation, forKey: nil)
+            shadowLayer.add(bezAnimation, forKey: nil)
         }
-        self.layer.mask = mask
     }
     
     private func customInit(){
-        self.tintColor = .white
-        self.barTintColor = .white
-        self.backgroundColor = .white
+        maskedView.center = CGPoint(x: self.frame.size.width  / 2,
+                                    y:  self.frame.size.height / 2)
+        maskedView.backgroundColor = .white
+        self.insertSubview(maskedView, at:0)
+        maskedView.layer.mask = maskLayer
+        
+        shadowLayer.shadowOpacity = 0.1
+        shadowLayer.shadowRadius = 2
+        shadowLayer.shadowColor = UIColor.black.cgColor
+        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
+
+        maskedView.superview?.layer.insertSublayer(shadowLayer, below: maskedView.layer)
+        
+        self.tintColor = .clear
+        self.barTintColor = .clear
     }
     
     private func drawPath(for index: CGFloat) -> UIBezierPath {
@@ -104,6 +115,7 @@ extension SHCircleBar {
         bezPath.addCurve(to: rightPoint, controlPoint1: middlePointCurveDown, controlPoint2: middlePointCurveUp)
         
         bezPath.append(UIBezierPath(rect: self.bounds))
+        bezPath.close()
         
         return bezPath
     }
