@@ -139,12 +139,12 @@ extension SHCircleBarController {
         circleView.layer.shadowOffset = CGSize(width: 0, height: 0)
         circleView.layer.shadowRadius = 2
         circleView.layer.shadowColor = UIColor.black.cgColor
-        circleView.layer.shadowOpacity = 0.15
+        circleView.layer.shadowOpacity = 0.1
         
         let bottomPadding = getBottomPadding()
         
         circleView.frame = CGRect(
-            x: tabWidth / 2 - tabWidth*0.25,
+            x: tabWidth / 2 - circleViewWidth*0.5,
             y: self.tabBar.frame.origin.y - bottomPadding - circleViewWidth*0.5,
             width: circleViewWidth,
             height: circleViewWidth)
